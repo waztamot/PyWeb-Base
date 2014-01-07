@@ -1,6 +1,32 @@
-<?page title="Auto Generated index.zul"?>
-<window title="Hello World!!" border="normal" width="200px">
-
-<label value="You are using: ${desktop.webApp.version}"/>
-
+<?page title="Proyecto Web Base - (Zk, Hibernate, Spring)"?>
+<window title="Proyecto Web Base - (Java)" border="normal" width="200px" position="center,top">
+<separator/>
+<label value="Framework utilizados:" />
+<separator/>
+	<grid>
+		<columns>
+			<column label="Framework"/>
+			<column label="Version"/>
+		</columns>
+		<rows>
+			<row><label value="ZK"/><label value="${desktop.webApp.version}"/></row>
+			<row><label value="Hibernate"/><label value="4.0"/></row>
+			<row><label value="Spring"/><label value="3.2"/></row>
+		</rows>
+	</grid>
+<separator/><separator/>
+<label value="Librerias utilizadas:" />
+<separator/>
+	<grid>
+		<columns>
+			<column label="Framework"/>
+			<column label="Version"/>
+		</columns>
+		<rows>
+			<row><label value="ZK"/><label value="${desktop.webApp.version}"/></row>
+			<row><label value="Hibernate"/><label value="4.0"/></row>
+			<row><label value="Spring"/><label value="3.2"/></row>
+		</rows>
+	</grid>
+<separator/>
 </window>
