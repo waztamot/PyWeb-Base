@@ -1,4 +1,4 @@
-Configuración
+Configuracion
 =============
 
-Archivos para la configuración inicial del sistema.
+Archivos para la configuracion inicial del sistema.

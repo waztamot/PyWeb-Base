@@ -1,4 +1,4 @@
 Mantenimiento
 =============
 
-Archivos para la gestión y mantenimiento general del sistema.
+Archivos para la gestion y mantenimiento general del sistema.
