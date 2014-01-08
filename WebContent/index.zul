@@ -11,7 +11,7 @@
 		<rows>
 			<row><label value="ZK"/><label value="${desktop.webApp.version}"/></row>
 			<row><label value="Hibernate"/><label value="4.1.9"/></row>
-			<row><label value="Spring"/><label value="3.1.2"/></row>
+			<row><label value="Spring"/><label value="3.1.3"/></row>
 			<row><label value="Spring Security"/><label value="3.1.2"/></row>
 		</rows>
 	</grid>
