@@ -1,15 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<!-- ********************************************************* -->
+	<!-- 	Nombre de la aplicacion -->
+	<!-- ********************************************************* -->
 	<display-name>PyWeb-Base</display-name>
+	<!-- ********************************************************* -->
+	
+	<!-- ********************************************************* -->
+	<!-- 	Filtros de configuracion de Frameworks -->
+	<!-- ********************************************************* -->
+	<!-- 		Filtro Hibernate -->
+	<filter>
+		<filter-name>filtroHibernate</filter-name>
+		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+		<!-- Prueba de sessiones de hibernate -->
+		<!-- 	En caso de error eliminar todo el bloque init-param -->
+		<init-param>
+			<param-name>singleSession</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<!-- Fin de pruebas -->
+	</filter>
+	<!-- 		Filtro SpringSecurity -->
+	<!-- <filter>
+		<filter-name>filtroSpringSecurity</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter> -->
+	<!-- ********************************************************* -->
+	
+	<!-- ********************************************************* -->
+	<!-- 	Mapeo de filtros de configuracion de Frameworks -->
+	<!-- ********************************************************* -->
+	<!-- 		Mapeo de filtro Hibernate -->
+	<filter-mapping>
+		<filter-name>filtroHibernate</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 		Mapeo de filtro SpringSecurity -->
+	<!-- <filter-mapping>
+		<filter-name>filtroSpringSecurity</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping> -->
+	<!-- ********************************************************* -->
+	
+	<!-- ********************************************************* -->
+	<!-- 	Ubicacion de archivos de configuracion del Spring -->
+	<!-- ********************************************************* -->
+	<context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>
+    		<!-- Ruta del archivo de Spring -->
+        	classpath:applicationContext.xml
+        	<!-- Ruta del archivo de SpringSecurity -->
+        	<!-- classpath:applicationContext-security.xml  -->
+    	</param-value>
+	</context-param>
+	<!-- ********************************************************* -->
+	
+	<!-- ********************************************************* -->
+	<!-- 	Archivos de extencion del Listeners -->
+	<!-- ********************************************************* -->
+	<!-- 		Archivo Listener del SpringFramework -->
 	<listener>
-		<description>
-		Used to cleanup when a session is destroyed</description>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- 		Archivo Listener del Zk-Jsp -->
+	<listener>
+		<description>ZK JSP Tags environment initiation </description>
+		<display-name>ZK JSP Initiator</display-name>
+		<listener-class>org.zkoss.jsp.spec.JspFactoryContextListener</listener-class>
+	</listener>
+	<!-- 		Archivo Listener de la Sesion -->
+	<listener>
+		<description>Used to cleanup when a session is destroyed</description>
 		<display-name>ZK Session cleaner</display-name>
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
 	</listener>
+	<!-- ********************************************************* -->
+	
+	<!-- ********************************************************* -->
+	<!-- 	Archivos de extension de Servicios (Servlet) -->
+	<!-- ********************************************************* -->
+	<!-- 		Servicio para la carga de paginas .ZUL -->
 	<servlet>
-		<description>
-		The ZK loader for ZUML pages</description>
+		<description>The ZK loader for ZUML pages</description>
 		<servlet-name>zkLoader</servlet-name>
 		<servlet-class>org.zkoss.zk.ui.http.DHtmlLayoutServlet</servlet-class>
 		<init-param>
@@ -18,12 +92,17 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<!-- 		Servico asincrono de actualizacion -->
 	<servlet>
-		<description>
-		The asynchronous update engine for ZK</description>
+		<description>The asynchronous update engine for ZK</description>
 		<servlet-name>auEngine</servlet-name>
 		<servlet-class>org.zkoss.zk.au.http.DHtmlUpdateServlet</servlet-class>
 	</servlet>
+	<!-- ********************************************************* -->
+	
+	<!-- ********************************************************* -->
+	<!-- 	Archivos de Servicio de Mapeo -->
+	<!-- ********************************************************* -->
 	<servlet-mapping>
 		<servlet-name>zkLoader</servlet-name>
 		<url-pattern>*.zul</url-pattern>
@@ -36,6 +115,11 @@
 		<servlet-name>auEngine</servlet-name>
 		<url-pattern>/zkau/*</url-pattern>
 	</servlet-mapping>
+	<!-- ********************************************************* -->
+	
+	<!-- ********************************************************* -->
+	<!-- 	Archivos de Inicio por carpeta de vista -->
+	<!-- ********************************************************* -->
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.htm</welcome-file>
@@ -45,4 +129,14 @@
 		<welcome-file>default.jsp</welcome-file>
 		<welcome-file>index.zul</welcome-file>
 	</welcome-file-list>
+	<!-- ********************************************************* -->
+	
+	<!-- ********************************************************* -->
+	<!-- 	Pagina de rechazo por falta de autorizacion -->
+	<!-- ********************************************************* -->
+	<error-page>
+		<error-code>403</error-code>
+		<location>/system/seguridad/authorized.jsp</location>
+	</error-page>
+	<!-- ********************************************************* -->
 </web-app>
