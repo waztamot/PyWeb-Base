@@ -1,0 +1,8 @@
+/configuracion
+/model
+/controller
+/generic
+/applicationContext.xml
+/applicationContext-security.xml
+/springBean
+/hibernate.cfg.xml

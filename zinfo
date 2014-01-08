@@ -1,0 +1,40 @@
+Archivo de informacion general del Proyecto
+===========================================
+
+	INFO-GENERAL
+	============
+	
+Lenguaje:
+	1) Java				version: jdk7
+	2) Sql
+	3) jsp
+	
+Ide Desarrollo:
+	1) eclipse juno		version: 4.2
+
+Programas:
+	1) Toad				Version: 11.5.0
+	2) architec			Version:
+	3) jasperReport		Version:  
+
+Base Datos:
+	1) Oracle			Version: 9i (9.)
+
+Servidor:
+	1) Tomcat			Version: 7
+
+Frameworks:
+	1) zk				Version: 6.0.2
+	2) hibernate		Version: 4.0.0
+	3) Spring			Version: 3.1.1
+	4) Spring Security	Version: 3.1.1
+	
+Librerias Extras:
+	1) JasperReport		Version:
+	2) zk-jsp			Version:
+	3) zk-spring		version: 3.1.1
+	4) zk-security		version: 3.1.1
+	
+	PARTICULAR
+	==========
+	
