@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    <!-- ******************** MySQL ******************* -->
+    <!-- Inicio - 	Configuracion-GRAL(Conexion) Hibernate -->
+    	
+    <!-- Fin 	-	Configuracion-GRAL(Conexion) Hibernate -->
+    <!-- ********************************************** -->
+
+    <!-- ******************** PostGress ******************* -->
+    <!-- Inicio - 	Configuracion-GRAL(Conexion) Hibernate -->
+    	
+    <!-- Fin 	-	Configuracion-GRAL(Conexion) Hibernate -->
+    <!-- ************************************************** -->
+
+    <!-- ******************** Oracle ******************* -->
+    <!-- Inicio - 	Configuracion-GRAL(Conexion) Hibernate -->
+
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.connection.password">ssp2013</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@testoracle.servers.int:1521:tpru</property>
+        <property name="hibernate.connection.username">ssp</property>
+        <property name="hibernate.default_schema">SSP</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle9iDialect</property>
+        
+
+    <!-- Fin 	-	Configuracion-GRAL(Conexion) Hibernate -->
+    <!-- Inicio	-	Solo para Oracle 9i -->
+            
+        <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+        
+    <!-- Fin	-	Solo para Oracle 9i -->
+    <!-- *********************************************** -->
+
+	<!-- *********************************************** -->
+    <!-- Inicio - 	Configuracion Especifica Hibernate -->
+    
+    	<!-- Hibernate => Version 3.6.10 -->
+		<property name="current_session_context_class">thread</property>
+		
+		<!-- Hibernate => Version 4.0.0 -->
+		<!-- <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property> -->
+               
+    <!-- Fin	- 	Configuracion Especifica Hibernate -->
+	<!-- *********************************************** -->
+
+    <!-- *********************************************** -->
+    <!-- Inicio - 	Mapeo de Clases Hibernate -->
+
+    <!--    <mapping class="prueba.hibernate.SspPersona" /> -->
+        
+        <mapping class="modelo.general.SspPersona" />
+        <mapping class="modelo.producto.SspSolicitudproducto" />
+        <mapping class="modelo.general.SspUsuario" />
+        <mapping class="modelo.general.SspNivelacceso" />
+        <mapping class="modelo.general.SspRol" />
+
+	<!-- Fin	- 	Mapeo de Clases Hibernate -->
+	<!-- *********************************************** -->
+    </session-factory>
+</hibernate-configuration>

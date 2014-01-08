@@ -1,0 +1,76 @@
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans
+           	http://www.springframework.org/schema/beans/spring-beans.xsd
+           	http://www.springframework.org/schema/security
+           	http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+    
+    <!-- ****************************************************** -->
+	<!-- Filtros de url segun roles -->
+	<!-- ****************************************************** -->
+    <http auto-config="true">
+    	<!-- Intercepcion de rutas segun roles general -->
+    	<!-- 
+    		<intercept-url access="ROLE_USER" pattern="/index.jsp" />
+			<intercept-url access="ROLE_USER" pattern="/system/index.zul" />
+			<intercept-url access="ROLE_MENU1" pattern="/system/frmMenu.zul" />
+			<intercept-url access="ROLE_REPORT" pattern="/system/frmReport.zul" />
+    	 -->
+    	 
+    	<!-- Intercepcion de rutas segun roles paginas especificas -->
+    	<!--
+    		<intercept-url access="ROLE_BUDGET"
+				pattern="/system/ventas/solicitud/frmBudget.zul" />
+			<intercept-url access="ROLE_QUOTATION"
+				pattern="/system/ventas/presupuesto/frmQuotation.zul" />
+			<intercept-url access="ROLE_QUOTATION"
+				pattern="/system/ventas/presupuesto/frmWindowQuotations.zul" />
+			<intercept-url access="ROLE_SALES_SUMMARY"
+				pattern="/system/ventas/resumen/frmSaleSummary.zul" />
+			<intercept-url access="ROLE_TRANSACTION_SUMMARY"
+				pattern="/system/ventas/resumen_negociacion/frmTransactionSummary.zul" />
+			<intercept-url access="ROLE_EFFECTIVE_SALES"
+				pattern="/system/ventas/reportes/frmEffectiveSales.zul" />
+			<intercept-url access="ROLE_ITEM_MASTER"
+				pattern="/system/inventario/frmItemMaster.zul" />
+			<intercept-url access="ROLE_BUSINESS_PARTNER"
+				pattern="/system/socios/frmBusinessPartner.zul" />
+		 -->
+		 
+    	<!-- Intercepcion de rutas segun roles paginas de seguridad -->
+    	<!-- 
+    		<intercept-url access="IS_AUTHENTICATED_ANONYMOUSLY"
+				pattern="/system/seguridad/authorized.jsp" />
+			<intercept-url access="IS_AUTHENTICATED_ANONYMOUSLY"
+				pattern="/system/seguridad/notAuthorized.zul" />
+			<intercept-url access="IS_AUTHENTICATED_ANONYMOUSLY"
+				pattern="/system/seguridady/login.zul" />
+			<intercept-url access="IS_AUTHENTICATED_ANONYMOUSLY"
+				pattern="/system/contacto/frmContact.zul" />
+		 -->
+		 
+    	<!-- Configuracion de Inicio de sesion -->
+    	<!-- <form-login authentication-failure-url="/system/seguridad/index.jsp?login_error=1"
+			default-target-url="/index.jsp" login-page="/system/seguridad/index.jsp" /> -->
+			
+		<!-- Configuracion de Fin de sesion -->	
+		<!-- <logout logout-success-url="/system/seguridad/index.jsp" /> -->
+		
+		<!-- Configuracion de Maximo de conexiones -->
+		<!-- <session-management>
+			<concurrency-control max-sessions="1" />
+		</session-management> -->
+    </http>
+	<!-- ****************************************************** -->
+	
+	<!-- ****************************************************** -->
+	<!-- Configuracion de manejo de autentificacion -->
+	<!-- ****************************************************** -->
+	<authentication-manager>
+		<authentication-provider user-service-ref="userDetailsService">
+			<password-encoder hash="sha-256"></password-encoder>
+		</authentication-provider>
+	</authentication-manager>
+	<!-- ****************************************************** -->
+</beans:beans>
