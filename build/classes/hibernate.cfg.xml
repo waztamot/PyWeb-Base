@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+    <!-- ******************** MySQL ******************* -->
+    <!-- Inicio - 	Configuracion-GRAL(Conexion) Hibernate -->
+    	<!-- 
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">passwordDBA.12345</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/nameDB</property>
+        <property name="hibernate.connection.username">userDBA</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+         -->
+    <!-- Fin 	-	Configuracion-GRAL(Conexion) Hibernate -->
+    <!-- ********************************************** -->
+
+    <!-- ******************** PostGress ******************* -->
+    <!-- Inicio - 	Configuracion-GRAL(Conexion) Hibernate -->
+    	<!-- 
+    	<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    	<property name="hibernate.connection.password">passwordDBA.12345</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/nameDB</property>
+        <property name="hibernate.connection.username">userDBA</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+         -->
+    <!-- Fin 	-	Configuracion-GRAL(Conexion) Hibernate -->
+    <!-- ************************************************** -->
+
+    <!-- ******************** Oracle ******************* -->
+    <!-- Inicio - 	Configuracion-GRAL(Conexion) Hibernate -->
+		<!-- 
+        <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+        <property name="hibernate.connection.password">passwordDBA.12345</property>
+        <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:nameDB</property>
+        <property name="hibernate.connection.username">userDBA</property>
+        <property name="hibernate.default_schema">schemaDB</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.Oracle9iDialect</property>
+         -->
+        <!-- Solo para Oracle 9i -->
+        <!-- 
+        <property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+         -->
+    <!-- Fin 	-	Configuracion-GRAL(Conexion) Hibernate -->
+    <!-- *********************************************** -->
+
+	<!-- *********************************************** -->
+    <!-- Inicio - 	Configuracion Especifica Hibernate -->
+    	<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.c3p0.acquire_increment">1</property>
+        <property name="hibernate.c3p0.idle_test_period">100</property>
+        <property name="hibernate.c3p0.max_size">100</property>
+        <property name="hibernate.c3p0.max_statements">1</property>
+        <property name="hibernate.c3p0.min_size">10</property>
+        <property name="hibernate.c3p0.timeout">100</property>
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+    	<!-- Hibernate => Version 3.6.10 -->
+		<!-- <property name="current_session_context_class">thread</property> -->
+		<!-- Hibernate => Version 4.0.0 -->
+		<!-- <property name="hibernate.current_session_context_class">org.hibernate.context.internal.ThreadLocalSessionContext</property> -->
+    <!-- Fin	- 	Configuracion Especifica Hibernate -->
+	<!-- *********************************************** -->
+
+    <!-- *********************************************** -->
+    <!-- Inicio - 	Mapeo de Clases Hibernate -->
+		<!-- <mapping class="model.database.usuario" />  -->
+		
+	<!-- Fin	- 	Mapeo de Clases Hibernate -->
+	<!-- *********************************************** -->
+	
+    </session-factory>
+</hibernate-configuration>
