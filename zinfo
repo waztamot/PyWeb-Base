@@ -19,6 +19,8 @@ Programas:
 
 Base Datos:
 	1) Oracle			Version: 9i (9.)
+	2) Mysql			Version: 5.1.22
+	3) postgresql		Version: 9.2
 
 Servidor:
 	1) Tomcat			Version: 7

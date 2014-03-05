@@ -13,6 +13,7 @@
         <property name="hibernate.connection.username">userDBA</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
          -->
+         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <!-- Fin 	-	Configuracion-GRAL(Conexion) Hibernate -->
     <!-- ********************************************** -->
 
